@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #2979ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1854db;
+        }
+
+        #error-message {
+            color: red;
+            display: none;
+        }
+
+        .help-button {
+            background-color: #25d366;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            width: 95%;
+            margin-top: 10px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .help-button:hover {
+            background-color: #128c7e;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5VD5txdSxyC4oYpT9cuTIkFplEpR24KnLpXTW9uo7Bpm1IeBj4RRLDX84AIqCsQpC4qo&usqp=CAU" alt="Avatar" style="width: 100px; border-radius: 50%;">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="text" id="username" name="username" placeholder="Username" required><br>
+        <input type="password" id="password" name="password" placeholder="Password" required><br>
+        <input type="submit" value="Login">
+    </form>
+    <div class="error-message" id="error-message"></div>
+    <a href="https://wa.me/6285641046345?&text=Halo%2C%20saya%20memiliki%20kendala%20dengan%20%5Bproduct%20name%5D.%0ADapatkah%20Anda%20membantu%20saya%3F" class="help-button">Butuh Bantuan?</a>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    
+    // Ganti nilai username, password, dan tautan yang diizinkan di sini
+    var users = [
+        { username: "NURIDMA", password: "1263HYKI", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/21-menu-nuri" },
+        { username: "NAFFNFF", password: "NANM1234", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/19-menu-nafiah" },
+        { username: "IMAMMIM", password: "1226LANA", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/18-menu-imam" },
+        { username: "MUTTMMU", password: "RTSG5784", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/17-menu-taldik" },
+        { username: "MHDAMMH", password: "7659HUDA", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/16-menu-huda" },
+        { username: "INDRMIL", password: "8965YURT", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/15-menu-indra" },
+        { username: "AZAMAKM", password: "AZAM2012", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/14-menu-azam" },
+        { username: "FARCMFA", password: "2345FRKA", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/13-menu-farchan" },
+        { username: "ZULFLAZ", password: "0211FAFA", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/12-menu-zulfa" },
+        { username: "LAILNMB", password: "3457ASGH", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/11-menu-laili" },
+        { username: "NISAKHK", password: "2456EWRE", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/10-menu-nisa" },
+        { username: "MULFKM", password: "AEFG1246", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/9-menu-mualif" },
+        { username: "BALSBAS", password: "7812ABCD", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/8-menu-balqis" },
+        { username: "AVRILAPF", password: "2814RIJH", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/7-menu-avril" },
+        { username: "AISYANL", password: "LUPA2012", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/6-menu-aisyah" },
+        { username: "NAJWAANA", password: "4321NIMA", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/5-menu-ainia" },
+        { username: "RIFQIARM", password: "WFGT1234", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/3-menu-rifqi" },
+        { username: "ANDRAARM", password: "1458DYZM", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/4-menu-rizki" },
+        { username: "AFIFIAAY", password: "1234AAAA", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/1-menu-yahya" },
+        { username: "AHKNI", password: "4444PUYT", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/2-menu-niam" },
+        { username: "RYAST", password: "5892KLHG", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/25-menu-robi" },
+        { username: "RFKFZ", password: "4590GYOI", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/24-menu-rifkha" },
+        { username: "SHMUY", password: "2012ENAM", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/26-menu-saroh" },
+        { username: "RDIRW", password: "2011RATA", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/23-menu-ridho" },
+        { username: "RFYKHF", password: "3028SYRN", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/28-menu-rani" },
+        { username: "SAWLD", password: "TTRF5643", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/27-menu-wilda" },
+        { username: "PJYNT", password: "3214HYTR", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/22-menu-pujianto" },
+        { username: "NMHSN", password: "2312LPKJ", link: "https://sites.google.com/guru.sd.belajar.id/smart-web/20-menu-husna" },
+        // Tambahkan pengguna lain di sini
+        { username: "333", password: "ccc", link: "https://www.openai.com" }
+    ];
+    
+    var validUser = false;
+    var userLink = null;
+    
+    for (var i = 0; i < users.length; i++) {
+        if (username === users[i].username && password === users[i].password) {
+            validUser = true;
+            userLink = users[i].link;
+            break;
+        }
+    }
+    
+    if (validUser) {
+        // Menutup tab sebelumnya jika browser mendukung
+        if (window.opener) {
+            window.opener.close();
+        }
+        
+        // Jika username dan password benar, buka tautan yang sesuai di tab baru
+        window.open(userLink, "_blank");
+    } else {
+        var errorMessage = document.getElementById("error-message");
+        errorMessage.textContent = "Username atau password salah. Silakan coba lagi.";
+        errorMessage.style.display = "block";
+
+        // Menyembunyikan pesan kesalahan setelah 3 detik
+        setTimeout(function() {
+            errorMessage.style.display = "none";
+        }, 3000);
+    }
+});
+</script>
+
+</body>
+</html>
