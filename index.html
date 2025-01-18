@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ujicoba PUTRO</title>
@@ -10,55 +10,34 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
         }
 
         header {
             background-color: #4CAF50;
             color: white;
-            padding: 20px;
-            text-align: center;
             font-size: 24px;
             font-weight: bold;
-        }
-
-        main {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        Selamat datang di ujicoba PUTRO
-    </header>
-<head>
-    <title>Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
+            width: 100%;
+            height: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        main {
+            margin-top: 120px; /* Memberi jarak untuk header */
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
         }
 
         .container {
@@ -66,8 +45,6 @@
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
             padding: 20px;
-            max-width: 400px;
-            width: 100%;
             text-align: center;
         }
 
@@ -78,7 +55,7 @@
         input[type="text"],
         input[type="password"] {
             width: 95%;
-            padding: 5px;
+            padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -120,67 +97,69 @@
         .help-button:hover {
             background-color: #128c7e;
         }
+
+        img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
+    <header>
+        Selamat datang di ujicoba PUTRO
+    </header>
 
-<div class="container">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5VD5txdSxyC4oYpT9cuTIkFplEpR24KnLpXTW9uo7Bpm1IeBj4RRLDX84AIqCsQpC4qo&usqp=CAU" alt="Avatar" style="width: 100px; border-radius: 50%;">
-    <h2>Login</h2>
-    <form id="loginForm">
-        <input type="text" id="username" name="username" placeholder="Username" required><br>
-        <input type="password" id="password" name="password" placeholder="Password" required><br>
-        <input type="submit" value="Login">
-    </form>
-    <div class="error-message" id="error-message"></div>
-    <a href="https://wa.me/6285641046345?&text=Halo%2C%20saya%20memiliki%20kendala%20dengan%20%5Bproduct%20name%5D.%0ADapatkah%20Anda%20membantu%20saya%3F" class="help-button">Butuh Bantuan?</a>
-</div>
+    <main>
+        <div class="container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5VD5txdSxyC4oYpT9cuTIkFplEpR24KnLpXTW9uo7Bpm1IeBj4RRLDX84AIqCsQpC4qo&usqp=CAU" alt="Avatar">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="username" name="username" placeholder="Username" required><br>
+                <input type="password" id="password" name="password" placeholder="Password" required><br>
+                <input type="submit" value="Login">
+            </form>
+            <div class="error-message" id="error-message"></div>
+            <a href="https://wa.me/6285641046345?&text=Halo%2C%20saya%20memiliki%20kendala%20dengan%20%5Bproduct%20name%5D.%0ADapatkah%20Anda%20membantu%20saya%3F" class="help-button">Butuh Bantuan?</a>
+        </div>
+    </main>
 
-<script>
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    
-    // Ganti nilai username, password, dan tautan yang diizinkan di sini
-    var users = [
-        { username: "pu", password: "12", link: "https://putrogit.github.io/wlcm.putro/" },
-        // Tambahkan pengguna lain di sini
-        { username: "tr", password: "34", link: "https://www.openai.com" }
-    ];
-    
-    var validUser = false;
-    var userLink = null;
-    
-    for (var i = 0; i < users.length; i++) {
-        if (username === users[i].username && password === users[i].password) {
-            validUser = true;
-            userLink = users[i].link;
-            break;
-        }
-    }
-    
-    if (validUser) {
-        // Menutup tab sebelumnya jika browser mendukung
-        if (window.opener) {
-            window.opener.close();
-        }
-        
-        // Jika username dan password benar, buka tautan yang sesuai di tab baru
-        window.open(userLink, "_blank");
-    } else {
-        var errorMessage = document.getElementById("error-message");
-        errorMessage.textContent = "Username atau password salah. Silakan coba lagi.";
-        errorMessage.style.display = "block";
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-        // Menyembunyikan pesan kesalahan setelah 3 detik
-        setTimeout(function() {
-            errorMessage.style.display = "none";
-        }, 3000);
-    }
-});
-</script>
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
 
+            // Daftar pengguna dan tautan terkait
+            var users = [
+                { username: "pu", password: "12", link: "https://putrogit.github.io/wlcm.putro/" },
+                { username: "tr", password: "34", link: "https://www.openai.com" }
+            ];
+
+            var validUser = false;
+            var userLink = null;
+
+            for (var i = 0; i < users.length; i++) {
+                if (username === users[i].username && password === users[i].password) {
+                    validUser = true;
+                    userLink = users[i].link;
+                    break;
+                }
+            }
+
+            if (validUser) {
+                window.open(userLink, "_blank");
+            } else {
+                var errorMessage = document.getElementById("error-message");
+                errorMessage.textContent = "Username atau password salah. Silakan coba lagi.";
+                errorMessage.style.display = "block";
+
+                setTimeout(function() {
+                    errorMessage.style.display = "none";
+                }, 3000);
+            }
+        });
+    </script>
 </body>
 </html>
